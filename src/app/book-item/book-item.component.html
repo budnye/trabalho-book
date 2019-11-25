@@ -1,0 +1,43 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div class="ion-align-items-center">
+        <ion-card>
+          <ion-spinner name="lines-small" color="primary" *ngIf="!imgLoaded" style="padding: 50%;"></ion-spinner>
+          <ion-img [src]="this.livro.imgFile" (ionImgDidLoad)="imgLoaded = true">
+          </ion-img>
+          <ion-card-header>
+            <ion-card-title style="font-size: medium;">{{ this.livro.title }}</ion-card-title>
+            <ion-card-subtitle>{{ this.livro.author }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button *ngIf="!isOnMyBooks(this.livro)" class="ion-float-left" fill="clear" size="large"
+                    (click)='addToList(this.livro)'>
+                    <ion-icon name="add-circle" slot="icon-only" color="success"></ion-icon>
+                  </ion-button>
+                  <ion-button *ngIf="isOnMyBooks(this.livro)" class="ion-float-left" fill="clear" size="large"
+                    (click)='removeFromList(this.livro)'>
+                    <ion-icon name="close-circle" slot="icon-only" color="danger"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button *ngIf="!isOnFavorite(this.livro)" class="ion-float-right" fill="clear" size="large"
+                    (click)='addToFavorite(this.livro)'>
+                    <ion-icon name="heart" slot="icon-only" color="danger"></ion-icon>
+                  </ion-button>
+                  <ion-button *ngIf="isOnFavorite(this.livro)" class="ion-float-right" fill="clear" size="large"
+                    (click)='removeFromFavorite(this.livro)'>
+                    <ion-icon name="heart-dislike" slot="icon-only" color="dark"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

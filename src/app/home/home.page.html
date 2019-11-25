@@ -1,14 +1,77 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color='primary'>
     <ion-title>
-      Ionic Blank
+      BookMate
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-searchbar [(ngModel)]="nome"></ion-searchbar>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding-start">
+        <div>
+          <ion-button (click)='doSearch(reset = true)' class="ion-float-left">Buscar</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-padding-end">
+        <div>
+          <ion-button (click)='limpar()' class="ion-float-right">Limpar</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-row *ngIf="loader" class="ion-align-items-center ion-justify-content-center"
+    style="height: 65%; flex-direction: column">
+    <ion-spinner color="primary"></ion-spinner>
+  </ion-row>
+  <ion-list *ngIf="active">
+    <ion-list-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="ion-text-center">Foram encontrados {{ this.totalItems }} livros</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list-header>
+    <ion-item *ngFor='let livro of this.books'>
+      <app-book-item [livro]="livro">
+      </app-book-item>
+    </ion-item>
+    <ion-list-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button [disabled]="(this.pageIndex < 1)" size="small" slot="icon-only" class="ion-float-left"
+                (click)='switchPage(forward = false)'>
+                <ion-icon name="arrow-dropleft-circle"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <br>
+            <div class="ion-text-center">{{ getPage() }}</div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-button [disabled]="((this.pageIndex + 1) == this.totalPages)" size="small" slot="icon-only"
+                (click)='switchPage()' class="ion-float-right">
+                <ion-icon name="arrow-dropright-circle"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list-header>
+  </ion-list>
 </ion-content>
+<ion-toolbar color="primary">
+</ion-toolbar>
