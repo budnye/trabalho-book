@@ -25,7 +25,7 @@
                 </ion-col>
                 <ion-col>
                   <ion-button *ngIf="!isOnFavorite(this.livro)" class="ion-float-right" fill="clear" size="large"
-                    (click)='addToFavorite(this.livro)'>
+                    (click)='addToFavorite(this.livro)' [disabled]="isOnMyBooks(this.livro)">
                     <ion-icon name="heart" slot="icon-only" color="danger"></ion-icon>
                   </ion-button>
                   <ion-button *ngIf="isOnFavorite(this.livro)" class="ion-float-right" fill="clear" size="large"

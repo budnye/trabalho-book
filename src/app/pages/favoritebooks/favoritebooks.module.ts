@@ -6,6 +6,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 
 import { FavoritebooksPage } from "./favoritebooks.page";
+import { FavoriteListComponent } from "../../components/favorite-list/favorite-list.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FavoritebooksPage]
+  declarations: [FavoritebooksPage, FavoriteListComponent]
 })
 export class FavoritebooksPageModule {}

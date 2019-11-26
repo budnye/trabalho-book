@@ -23,11 +23,10 @@ export class BookItemComponent implements OnInit {
 
   addToList(book: Book) {
     this.myBookService.saveBook(book);
-    console.log(this.myBookService.getList());
+    this.myFavoriteService.removeBook(book.id);
   }
   removeFromList(book: Book) {
     this.myBookService.removeBook(book.id);
-    console.log(this.myBookService.getList());
   }
   isOnMyBooks(book: Book) {
     if (this.myBookService.getBook(book.id)) {
@@ -39,11 +38,9 @@ export class BookItemComponent implements OnInit {
 
   addToFavorite(book: Book) {
     this.myFavoriteService.saveBook(book);
-    console.log(this.myFavoriteService.getList());
   }
   removeFromFavorite(book: Book) {
     this.myFavoriteService.removeBook(book.id);
-    console.log(this.myFavoriteService.getList());
   }
   isOnFavorite(book: Book) {
     if (this.myFavoriteService.getBook(book.id)) {

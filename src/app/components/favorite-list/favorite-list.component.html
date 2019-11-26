@@ -10,15 +10,15 @@
     </ion-item>
 
     <ion-item-options side="start">
-      <ion-item-option color="light" (click)="removeFromList(book)">
-        <ion-icon slot="icon-only" name="close-circle" color="danger"></ion-icon>
+      <ion-item-option color="light" (click)="removeFromFavorite(book)">
+        <ion-icon slot="icon-only" name="heart-dislike" color="dark"></ion-icon>
       </ion-item-option>
     </ion-item-options>
 
     <ion-item-options side="end">
 
-      <ion-item-option color="light" [disabled]="isReading(book)" (click)="addToReading(book)">
-        <ion-icon slot="icon-only" name="bookmarks" color="primary"></ion-icon>
+      <ion-item-option color="light" (click)="addToMyBooks(book)">
+        <ion-icon slot="icon-only" name="add-circle" color="success"></ion-icon>
       </ion-item-option>
 
     </ion-item-options>

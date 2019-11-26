@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Book } from "../../services/book";
 import { MyBooksService } from "../../services/my-books.service";
+import { ReadingService } from "../../services/reading.service";
 
 @Component({
   selector: "app-book-list",
@@ -10,7 +11,10 @@ import { MyBooksService } from "../../services/my-books.service";
 export class BookListComponent implements OnInit {
   list: Book[];
 
-  constructor(private myBookService: MyBooksService) {
+  constructor(
+    private myBookService: MyBooksService,
+    private readingService: ReadingService
+  ) {
     this.list = myBookService.getList();
   }
 
@@ -26,5 +30,17 @@ export class BookListComponent implements OnInit {
     }
   }
 
+  addToReading(book: Book) {
+    this.readingService.saveBook(book);
+  }
+
+  isReading(book: Book) {
+    let rBook = this.readingService.getBook();
+    if (book === rBook) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   ngOnInit() {}
 }

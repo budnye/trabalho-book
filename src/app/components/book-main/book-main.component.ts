@@ -50,7 +50,6 @@ export class BookMainComponent implements OnInit {
           const author = this.getAuthor(book.volumeInfo.authors);
           const img = this.getImg(book.volumeInfo);
           const newBook = new Book(id, isbn, title, author, img);
-          console.log(newBook);
           this.books.push(newBook);
         });
         this.loader = false;
