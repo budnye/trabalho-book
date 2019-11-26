@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import axios from "axios";
-import { Book } from "../book-item/book";
+import { Book } from "../../services/book";
 
 @Component({
   selector: "app-book-main",
