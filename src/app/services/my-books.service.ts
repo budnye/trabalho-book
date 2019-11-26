@@ -19,8 +19,7 @@ export class MyBooksService {
   }
 
   getBook(id: string) {
-    let result = this.bookList.find(b => b.id === id);
-    return result;
+    return this.bookList.find(b => b.id === id);
   }
   removeBook(id: string) {
     for (let i = 0; i < this.bookList.length; i++) {

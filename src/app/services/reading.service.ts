@@ -5,18 +5,29 @@ import { Book } from "./book";
   providedIn: "root"
 })
 export class ReadingService {
-  private reading: Book[];
+  private readingList: Book[];
   constructor() {
-    this.reading = [];
+    this.readingList = [];
   }
 
-  getBook() {
-    return this.reading[this.reading.length - 1];
+  getList() {
+    return this.readingList;
+  }
+
+  getBook(id: string) {
+    return this.readingList.find(b => b.id === id);
   }
 
   saveBook(book: Book) {
-    this.reading = [];
-    this.reading.push(book);
-    console.log(this.reading);
+    this.readingList.unshift(book);
+  }
+
+  removeBook(id: string) {
+    for (let i = 0; i < this.readingList.length; i++) {
+      if (this.readingList[i].id === id) {
+        this.readingList.splice(i, 1);
+        i--;
+      }
+    }
   }
 }

@@ -1,0 +1,30 @@
+<ion-list>
+  <div>
+    <ion-item *ngIf="this.list.length < 1">
+      <p>Nenhum livro salvo</p>
+    </ion-item>
+  </div>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="removeBook(this.list[0])"
+    *ngIf="this.list.length >= 1">
+    <ion-fab-button color="danger">
+      <ion-icon name="close-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-item *ngFor="let book of this.list">
+    <ion-item>
+      <ion-card>
+        <ion-spinner name="lines-small" color="primary" *ngIf="!imgLoaded" style="padding: 50%;"></ion-spinner>
+        <ion-img [src]="book.imgFile" (ionImgDidLoad)="imgLoaded = true">
+        </ion-img>
+        <ion-card-header>
+          <ion-card-title style="font-size: medium;">{{ book.title }}</ion-card-title>
+          <ion-card-subtitle>{{ book.author }}</ion-card-subtitle>
+          <ion-card-subtitle>{{ book.isbn }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ book.description }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-item>
+</ion-list>

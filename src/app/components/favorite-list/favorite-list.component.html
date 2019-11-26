@@ -1,4 +1,9 @@
 <ion-list>
+  <div>
+    <ion-item *ngIf="this.list.length < 1">
+      <p>Nenhum livro salvo</p>
+    </ion-item>
+  </div>
   <ion-item-sliding *ngFor="let book of this.list">
 
     <ion-item>

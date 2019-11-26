@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { ReadingPage } from './reading.page';
+import { ReadingPage } from "./reading.page";
+import { ReadingDisplayComponent } from "../../components/reading-display/reading-display.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: ReadingPage
   }
 ];
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ReadingPage]
+  declarations: [ReadingPage, ReadingDisplayComponent]
 })
 export class ReadingPageModule {}

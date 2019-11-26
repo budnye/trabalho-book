@@ -49,7 +49,8 @@ export class BookMainComponent implements OnInit {
           const title = book.volumeInfo.title;
           const author = this.getAuthor(book.volumeInfo.authors);
           const img = this.getImg(book.volumeInfo);
-          const newBook = new Book(id, isbn, title, author, img);
+          const description = this.getDescription(book.volumeInfo);
+          const newBook = new Book(id, isbn, title, author, img, description);
           this.books.push(newBook);
         });
         this.loader = false;
@@ -80,6 +81,13 @@ export class BookMainComponent implements OnInit {
       return isbn.industryIdentifiers[0].identifier;
     } else {
       return "sem informação";
+    }
+  }
+  getDescription(info) {
+    if (info.description) {
+      return info.description;
+    } else {
+      return "Sem descrição.";
     }
   }
   scrollToTop() {

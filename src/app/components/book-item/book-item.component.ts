@@ -29,11 +29,7 @@ export class BookItemComponent implements OnInit {
     this.myBookService.removeBook(book.id);
   }
   isOnMyBooks(book: Book) {
-    if (this.myBookService.getBook(book.id)) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.myBookService.getBook(book.id);
   }
 
   addToFavorite(book: Book) {
@@ -43,11 +39,7 @@ export class BookItemComponent implements OnInit {
     this.myFavoriteService.removeBook(book.id);
   }
   isOnFavorite(book: Book) {
-    if (this.myFavoriteService.getBook(book.id)) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.myFavoriteService.getBook(book.id);
   }
   ngOnInit() {}
 }

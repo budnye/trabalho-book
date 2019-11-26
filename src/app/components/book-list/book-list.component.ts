@@ -23,11 +23,7 @@ export class BookListComponent implements OnInit {
   }
 
   isOnMyBooks(book: Book) {
-    if (this.myBookService.getBook(book.id)) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.myBookService.getBook(book.id);
   }
 
   addToReading(book: Book) {
@@ -35,12 +31,7 @@ export class BookListComponent implements OnInit {
   }
 
   isReading(book: Book) {
-    let rBook = this.readingService.getBook();
-    if (book === rBook) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.readingService.getBook(book.id);
   }
   ngOnInit() {}
 }
