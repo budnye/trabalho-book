@@ -100,4 +100,6 @@ export class BookMainComponent implements OnInit {
   getPage() {
     return `${this.pageIndex + 1} de ${this.totalPages}`;
   }
+
+  ngOnInit() {}
 }
