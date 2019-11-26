@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Book } from "./book";
-import { MyBooksService } from "../book-list/my-books.service";
-import { MyFavoriteService } from "../book-list/my-favorite.service";
+import { MyBooksService } from "../../services/my-books.service";
+import { MyFavoriteService } from "../../services/my-favorite.service";
 
 @Component({
   selector: "app-book-item",

@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { MybooksPage } from './mybooks.page';
+import { MybooksPage } from "./mybooks.page";
+import { BookListComponent } from "../../components/book-list/book-list.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: MybooksPage
   }
 ];
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MybooksPage]
+  declarations: [MybooksPage, BookListComponent]
 })
 export class MybooksPageModule {}

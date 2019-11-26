@@ -14,24 +14,24 @@ const routes: Routes = [
     children: [
       {
         path: "main",
-        loadChildren: "./pages/main/main.module#MainPageModule"
+        loadChildren: "../main/main.module#MainPageModule"
       },
       {
         path: "search",
-        loadChildren: "./pages/search/search.module#SearchPageModule"
+        loadChildren: "../search/search.module#SearchPageModule"
       },
       {
         path: "mybooks",
-        loadChildren: "./pages/mybooks/mybooks.module#MybooksPageModule"
+        loadChildren: "../mybooks/mybooks.module#MybooksPageModule"
       },
       {
         path: "favoritebooks",
         loadChildren:
-          "./pages/favoritebooks/favoritebooks.module#FavoritebooksPageModule"
+          "../favoritebooks/favoritebooks.module#FavoritebooksPageModule"
       },
       {
         path: "reading",
-        loadChildren: "./pages/reading/reading.module#ReadingPageModule"
+        loadChildren: "../reading/reading.module#ReadingPageModule"
       }
     ]
   },
